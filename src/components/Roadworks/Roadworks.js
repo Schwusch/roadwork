@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { StateContext } from './StateContext.js';
-import { fetchRoadworks, getNestedObject } from "./api/roadwork-api.js";
+import { StateContext } from '../../state/StateContext.js';
+import { fetchRoadworks, getNestedObject } from "../../api/roadwork-api.js";
 
 const gMapsUrl = "https://www.google.com/maps/search/?api=1&query="
 

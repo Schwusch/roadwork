@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Roadworks from './Roadworks.js';
-import ApiKeyInput from './ApiKeyInput.js';
-import { StateContext } from './StateContext.js';
+import Roadworks from '../Roadworks/Roadworks.js';
+import ApiKeyInput from '../ApiKeyInput/ApiKeyInput.js';
+import { StateContext } from '../../state/StateContext.js';
 
 class App extends React.Component {
 

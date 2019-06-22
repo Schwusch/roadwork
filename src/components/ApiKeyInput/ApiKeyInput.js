@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StateContext } from './StateContext.js';
+import { StateContext } from '../../state/StateContext.js';
 
 function ApiKeyInput() {
     const [input, setInput] = useState('');

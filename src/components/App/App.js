@@ -2,33 +2,31 @@ import React from 'react';
 import './App.css';
 import Roadworks from '../Roadworks/Roadworks.js';
 import ApiKeyInput from '../ApiKeyInput/ApiKeyInput.js';
-import { StateContext } from '../../state/StateContext.js';
+import { StateContext } from '../../state/StateContext.js';
 
 class App extends React.Component {
-
   constructor(props) {
     super(props);
-    this.setContext = (newState) => this.setState(newState);
+    this.setContext = newState => this.setState(newState);
     this.state = {
-      apiKey: "",
+      apiKey: '',
       clicked: {},
       setContext: this.setContext
     };
-    
   }
 
   componentDidMount() {
-    if (typeof(Storage) !== "undefined") {
+    if (typeof Storage !== 'undefined') {
       let savedState = null;
       try {
         savedState = JSON.parse(localStorage.state);
       } catch (error) {}
-      this.setState(savedState || this.state);
+      this.setState(savedState || this.state);
     }
   }
 
   componentDidUpdate() {
-    if (typeof(Storage) !== "undefined") {
+    if (typeof Storage !== 'undefined') {
       localStorage.state = JSON.stringify(this.state);
     }
   }
@@ -36,10 +34,10 @@ class App extends React.Component {
   render() {
     let comp;
     if (this.state.apiKey && this.state.apiKey.length === 32) {
-      comp = <Roadworks/>;
+      comp = <Roadworks />;
     } else {
-      comp = <ApiKeyInput/>;
-    } 
+      comp = <ApiKeyInput />;
+    }
     return (
       <div className="App">
         <header className="App-header">

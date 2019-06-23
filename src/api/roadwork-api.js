@@ -1,12 +1,14 @@
-const apiUrl = "https://api.trafikinfo.trafikverket.se/v2/data.json";
+const apiUrl = 'https://api.trafikinfo.trafikverket.se/v2/data.json';
 
 export const getNestedObject = (nestedObj, pathArr) => {
-    return pathArr.reduce((obj, key) =>
-        (obj && obj[key] !== 'undefined') ? obj[key] : undefined, nestedObj);
-}
+  return pathArr.reduce(
+    (obj, key) => (obj && obj[key] !== 'undefined' ? obj[key] : undefined),
+    nestedObj
+  );
+};
 
 export function fetchRoadworks(apiKey) {
-    const query = `<REQUEST>
+  const query = `<REQUEST>
     <LOGIN authenticationkey="${apiKey}" />
     <QUERY objecttype="Situation" schemaversion="1.2" limit="10">
     <FILTER>
@@ -27,10 +29,12 @@ export function fetchRoadworks(apiKey) {
     mode: 'cors',
     cache: 'no-cache',
     headers: {
-        'Content-Type': 'text/xml',
+      'Content-Type': 'text/xml'
     },
     body: query
   })
-  .then(response => response.json())
-  .then((data => getNestedObject(data, ["RESPONSE", "RESULT", 0, "Situation"])));
+    .then(response => response.json())
+    .then(data =>
+      getNestedObject(data, ['RESPONSE', 'RESULT', 0, 'Situation'])
+    );
 }

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/roadwork/static/css/main.855a93b2.chunk.css",
+    "main.js": "/roadwork/static/js/main.42688bbb.chunk.js",
+    "main.js.map": "/roadwork/static/js/main.42688bbb.chunk.js.map",
+    "runtime~main.js": "/roadwork/static/js/runtime~main.2401f7f8.js",
+    "runtime~main.js.map": "/roadwork/static/js/runtime~main.2401f7f8.js.map",
+    "static/js/2.9aa6d76e.chunk.js": "/roadwork/static/js/2.9aa6d76e.chunk.js",
+    "static/js/2.9aa6d76e.chunk.js.map": "/roadwork/static/js/2.9aa6d76e.chunk.js.map",
+    "index.html": "/roadwork/index.html",
+    "precache-manifest.5a5dcd81fbcb70014fecaf64820241f5.js": "/roadwork/precache-manifest.5a5dcd81fbcb70014fecaf64820241f5.js",
+    "service-worker.js": "/roadwork/service-worker.js",
+    "static/css/main.855a93b2.chunk.css.map": "/roadwork/static/css/main.855a93b2.chunk.css.map"
+  }
+}

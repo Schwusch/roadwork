@@ -16,10 +16,8 @@ export function fetchRoadworks(apiKey) {
             <EQ name="Deviation.MessageType" value="Vägarbete" />
         </ELEMENTMATCH>
     </FILTER>
-    <INCLUDE>Deviation.Header</INCLUDE>
     <INCLUDE>Deviation.Id</INCLUDE>
     <INCLUDE>Deviation.Message</INCLUDE>
-    <INCLUDE>Deviation.MessageType</INCLUDE>
     <INCLUDE>Deviation.Geometry.WGS84</INCLUDE>
     </QUERY>
   </REQUEST>`;

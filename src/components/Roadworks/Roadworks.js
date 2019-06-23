@@ -1,29 +1,31 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React from 'react';
 import { StateContext } from '../../state/StateContext.js';
-import { fetchRoadworks, getNestedObject } from '../../api/roadwork-api.js';
+import { getNestedObject } from '../../api/roadwork-api.js';
 import RoadworkItem from './RoadworkItem.js';
+import './Roadworks.css';
 
-function Roadworks() {
-  let [data, setData] = useState(null);
-  const { apiKey } = useContext(StateContext);
-
-  useEffect(() => {
-    fetchRoadworks(apiKey).then(setData);
-  }, [apiKey]);
-
-  console.log(data);
+function Roadworks(props) {
   return (
     <StateContext.Consumer>
-      {({ clicked }) => {
-        if (data) {
+      {({ clicked, roadworks }) => {
+        if (roadworks) {
           return (
-            <div>
-              {data.map(item => {
-                const deviation = getNestedObject(item, ['Deviation', 0]);
-                return (
-                  <RoadworkItem deviation={deviation} key={deviation.Id} />
-                );
-              })}
+            <div className="row" style={{ marginBottom: 10 }}>
+              <div className="column">
+                <h2>Vägarbeten</h2>
+                {roadworks.map(roadwork => {
+                  const deviation = getNestedObject(roadwork, ['Deviation', 0]);
+                  return (
+                    <RoadworkItem deviation={deviation} key={deviation.Id} />
+                  );
+                })}
+              </div>
+              <div className="column">
+                <h2>Du har klickat på:</h2>
+                {Object.values(clicked).map(item => {
+                  return <RoadworkItem deviation={item} key={item.Id} />;
+                })}
+              </div>
             </div>
           );
         } else {

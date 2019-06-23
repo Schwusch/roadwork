@@ -1,0 +1,23 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 10;
+  border-style: solid;
+  border-width: 2px;
+  border-color: darkgrey;
+  border-radius: 10px;
+  padding: 5px;
+  text-align: start;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  text-align: center;
+}

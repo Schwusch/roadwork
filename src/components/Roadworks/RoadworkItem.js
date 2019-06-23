@@ -1,24 +1,36 @@
 import { getNestedObject } from '../../api/roadwork-api.js';
-import React from 'react';
+import { StateContext } from '../../state/StateContext.js';
+import React, { useContext } from 'react';
+import './Roadworks.css';
 
 const gMapsUrl = 'https://www.google.com/maps/search/?api=1&query=';
 
 function RoadworkItem(props) {
-  let geometry = getNestedObject(props.deviation, ['Geometry', 'WGS84']);
+  const { deviation } = props;
+  const { setContext, clicked } = useContext(StateContext);
+
+  let geometry = getNestedObject(deviation, ['Geometry', 'WGS84']);
   if (geometry) {
     const re = /\d+\.\d+/g;
     geometry = geometry.match(re);
   }
   return (
-    <div>
+    <div
+      className="row"
+      style={{ borderColor: clicked[deviation.Id] ? 'lightgreen' : 'grey' }}
+    >
       <a
         href={`${gMapsUrl}${geometry[1]},${geometry[0]}`}
         className="App-link"
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => console.log(props.deviation.Id + ' clicked')}
+        onClick={() => {
+          const updClicked = { ...clicked };
+          updClicked[deviation.Id] = deviation;
+          setContext({ clicked: updClicked });
+        }}
       >
-        {props.deviation.Message}
+        {deviation.Message}
       </a>
     </div>
   );
